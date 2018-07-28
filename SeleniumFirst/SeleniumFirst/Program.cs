@@ -1,3 +1,5 @@
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +12,18 @@ namespace SeleniumFirst
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            // Create reference for our browser
+            IWebDriver driver = new ChromeDriver();
+
+            // Navigate to Google page
+            driver.Navigate().GoToUrl("https://www.google.com");
+
+            // Find the element (search box)
+            IWebElement element = driver.FindElement(By.Name("q"));
+
+            // Perform operations
+            element.SendKeys("Test the input");
+            driver.Close();
         }
     }
 }
