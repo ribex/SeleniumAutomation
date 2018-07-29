@@ -28,9 +28,9 @@ namespace SeleniumFirst
         {
             // Login to application
             LoginPageObject pageLogin = new LoginPageObject();
-            EAPageObject pageEA = pageLogin.Login("execute", "automation");
+            EAPageObject pageEa = pageLogin.Login("execute", "automation");
 
-            pageEA.FillUserForm("W.", "Rebecca", "A.");
+            pageEa.FillUserForm("W.", "Rebecca", "A.");
 
             //// Initialize the page by calling its reference
             //EAPageObject page = new EAPageObject();
