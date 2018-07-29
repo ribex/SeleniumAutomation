@@ -10,15 +10,15 @@ namespace SeleniumFirst
 {
     class SeleniumGetMethods
     {
-        public static string GetText(IWebDriver driver, string elementType, string element)
+        public static string GetText(string elementType, string element)
         {
             if (elementType == "Id")
             {
-                return driver.FindElement(By.Id(element)).GetAttribute("value");
+                return PropertiesCollection.Driver.FindElement(By.Id(element)).GetAttribute("value");
             }
             else if (elementType == "Name")
             {
-                return driver.FindElement(By.Name(element)).GetAttribute("value");
+                return PropertiesCollection.Driver.FindElement(By.Name(element)).GetAttribute("value");
             }
             else
             {
@@ -26,15 +26,15 @@ namespace SeleniumFirst
             }
         }
 
-        public static string GetTextFromDropdownList(IWebDriver driver, string elementType, string element)
+        public static string GetTextFromDropdownList(string elementType, string element)
         {
             if (elementType == "Id")
             {
-                return new SelectElement(driver.FindElement(By.Id(element))).AllSelectedOptions.SingleOrDefault().Text;
+                return new SelectElement(PropertiesCollection.Driver.FindElement(By.Id(element))).AllSelectedOptions.SingleOrDefault().Text;
             }
             else if (elementType == "Name")
             {
-                return new SelectElement(driver.FindElement(By.Name(element))).AllSelectedOptions.SingleOrDefault().Text;
+                return new SelectElement(PropertiesCollection.Driver.FindElement(By.Name(element))).AllSelectedOptions.SingleOrDefault().Text;
             }
             else
             {
