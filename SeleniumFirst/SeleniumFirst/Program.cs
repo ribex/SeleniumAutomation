@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-
 namespace SeleniumFirst
 {
     class Program
@@ -21,21 +20,23 @@ namespace SeleniumFirst
         [SetUp]
         public void Initialize()
         {
-            // Navigate to Google page
-            driver.Navigate().GoToUrl("https://www.google.com");
+            // Navigate to Execute Automation demo page
+            driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&Password=&Login=Login");
             Console.WriteLine("Opened URL");
         }
 
         [Test]
         public void ExecuteTest()
         {
-            // Find the element (search box)
-            IWebElement element = driver.FindElement(By.Name("q"));
+            // TitleId
+            SeleniumSetMethods.SelectDropDown(driver, "Id", "TitleId", "Mr.");
 
-            // Perform operations
-            element.SendKeys("Test the input");
+            // Initial
+            SeleniumSetMethods.EnterText(driver, "Name", "Initial", "execute automation");
+            Console.WriteLine("Enter Initial");
 
-            Console.WriteLine("Executed Test");
+            // Click
+            SeleniumSetMethods.ClickElement(driver, "Name", "Save");
         }
 
         [Test]
