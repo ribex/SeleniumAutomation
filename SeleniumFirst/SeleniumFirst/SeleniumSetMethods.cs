@@ -11,46 +11,21 @@ namespace SeleniumFirst
     class SeleniumSetMethods
     {
         // Enter Text
-        public static void EnterText(PropertyType elementType, string element, string value)
+        public static void EnterText(IWebElement element, string value)
         {
-            if (elementType == PropertyType.Id)
-            {
-                PropertiesCollection.Driver.FindElement(By.Id(element)).SendKeys(value);
-            }
-
-            if (elementType == PropertyType.Name)
-            {
-                PropertiesCollection.Driver.FindElement(By.Name(element)).SendKeys(value);
-            }
+            element.SendKeys(value);
         }
 
         // Click into a button, checkbox, option, etc.
-        public static void ClickElement(PropertyType elementType, string element)
+        public static void ClickElement(IWebElement element)
         {
-            if (elementType == PropertyType.Id)
-            {
-                PropertiesCollection.Driver.FindElement(By.Id(element)).Click();
-            }
-
-            if (elementType == PropertyType.Name)
-            {
-                PropertiesCollection.Driver.FindElement(By.Name(element)).Click();
-            }
+            element.Click();
         }
 
         // Select a dropdown control
-        public static void SelectDropDown(PropertyType elementType, string element, string value)
+        public static void SelectDropDown(IWebElement element, string value)
         {
-            if (elementType == PropertyType.Id)
-            {
-                new SelectElement(PropertiesCollection.Driver.FindElement(By.Id(element))).SelectByText(value);
-            }
-
-            if (elementType == PropertyType.Name)
-            {
-                new SelectElement(PropertiesCollection.Driver.FindElement(By.Name(element))).SelectByText(value);
-            }
-
+            new SelectElement(element).SelectByText(value);
         }
     }
 }

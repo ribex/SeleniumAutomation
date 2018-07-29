@@ -10,36 +10,15 @@ namespace SeleniumFirst
 {
     class SeleniumGetMethods
     {
-        public static string GetText(PropertyType elementType, string element)
+        public static string GetText(IWebElement element)
         {
-            if (elementType == PropertyType.Id)
-            {
-                return PropertiesCollection.Driver.FindElement(By.Id(element)).GetAttribute("value");
-            }
-            else if (elementType == PropertyType.Name)
-            {
-                return PropertiesCollection.Driver.FindElement(By.Name(element)).GetAttribute("value");
-            }
-            else
-            {
-                return String.Empty;
-            }
+            return element.GetAttribute("value");
         }
 
-        public static string GetTextFromDropdownList(PropertyType elementType, string element)
+        public static string GetTextFromDropdownList(IWebElement element)
         {
-            if (elementType == PropertyType.Id)
-            {
-                return new SelectElement(PropertiesCollection.Driver.FindElement(By.Id(element))).AllSelectedOptions.SingleOrDefault().Text;
-            }
-            else if (elementType == PropertyType.Name)
-            {
-                return new SelectElement(PropertiesCollection.Driver.FindElement(By.Name(element))).AllSelectedOptions.SingleOrDefault().Text;
-            }
-            else
-            {
-                return String.Empty;
-            }
+
+           return new SelectElement(element).AllSelectedOptions.SingleOrDefault().Text;
         }
 
     }
