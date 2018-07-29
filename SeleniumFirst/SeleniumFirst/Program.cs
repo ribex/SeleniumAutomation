@@ -27,17 +27,17 @@ namespace SeleniumFirst
         public void ExecuteTest()
         {
             // TitleId
-            SeleniumSetMethods.SelectDropDown("Id", "TitleId", "Mr.");
+            SeleniumSetMethods.SelectDropDown(PropertyType.Id, "TitleId", "Mr.");
 
             // Initial
-            SeleniumSetMethods.EnterText("Name", "Initial", "execute automation");
+            SeleniumSetMethods.EnterText(PropertyType.Name, "Initial", "execute automation");
 
-            Console.WriteLine("The value from my Title is: " + SeleniumGetMethods.GetTextFromDropdownList("Id", "TitleId"));
+            Console.WriteLine("The value from my Title is: " + SeleniumGetMethods.GetTextFromDropdownList(PropertyType.Id, "TitleId"));
 
-            Console.WriteLine("The value from my Initial is: " + SeleniumGetMethods.GetText("Name", "Initial"));
+            Console.WriteLine("The value from my Initial is: " + SeleniumGetMethods.GetText(PropertyType.Name, "Initial"));
 
             // Click
-            SeleniumSetMethods.ClickElement("Name", "Save");
+            SeleniumSetMethods.ClickElement(PropertyType.Name, "Save");
         }
 
         [Test]
