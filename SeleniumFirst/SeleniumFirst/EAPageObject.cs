@@ -21,7 +21,21 @@ namespace SeleniumFirst
         [FindsBy(How = How.Name, Using = "Initial")]
         public IWebElement InitialElement { get; set; }
 
+        [FindsBy(How = How.Name, Using = "FirstName")]
+        public IWebElement FirstNameElement { get; set; }
+
+        [FindsBy(How = How.Name, Using = "MiddleName")]
+        public IWebElement MiddleNameElement { get; set; }
+
         [FindsBy(How = How.Name, Using = "Save")]
         public IWebElement ButtonSaveElement { get; set; }
+
+        public void FillUserForm(string initial, string firstName, string middleName)
+        {
+            InitialElement.SendKeys(initial);
+            FirstNameElement.SendKeys(firstName);
+            MiddleNameElement.SendKeys(middleName);
+            ButtonSaveElement.Click();
+        }
     }
 }

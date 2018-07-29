@@ -19,19 +19,29 @@ namespace SeleniumFirst
         {
             PropertiesCollection.Driver = new ChromeDriver();
             // Navigate to Execute Automation demo page
-            PropertiesCollection.Driver.Navigate().GoToUrl("http://executeautomation.com/demosite/index.html?UserName=&Password=&Login=Login");
+            PropertiesCollection.Driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
             Console.WriteLine("Opened URL");
         }
 
         [Test]
         public void ExecuteTest()
         {
-            // Initialize the page by calling its reference
-            EAPageObject page = new EAPageObject();
+            // Login to application
+            LoginPageObject pageLogin = new LoginPageObject();
+            EAPageObject pageEA = pageLogin.Login("execute", "automation");
 
-            page.InitialElement.SendKeys("execute automation");
+            pageEA.FillUserForm("W.", "Rebecca", "A.");
 
-            page.ButtonSaveElement.Click();
+            //// Initialize the page by calling its reference
+            //EAPageObject page = new EAPageObject();
+
+            //page.InitialElement.SendKeys("W.");
+
+            //page.FirstNameElement.SendKeys("Rebecca");
+
+            //page.MiddleNameElement.SendKeys("A.");
+
+            //page.ButtonSaveElement.Click();
 
 
             //// TitleId
