@@ -33,7 +33,10 @@ namespace SeleniumFirst
 
             // Initial
             SeleniumSetMethods.EnterText(driver, "Name", "Initial", "execute automation");
-            Console.WriteLine("Enter Initial");
+
+            Console.WriteLine("The value from my Title is: " + SeleniumGetMethods.GetTextFromDropdownList(driver, "Id", "TitleId"));
+
+            Console.WriteLine("The value from my Initial is: " + SeleniumGetMethods.GetText(driver, "Name", "Initial"));
 
             // Click
             SeleniumSetMethods.ClickElement(driver, "Name", "Save");
